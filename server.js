@@ -16,7 +16,10 @@ app.use(bodyParser.json());
 
 router.get("/", (req, res) => {
     const timer = moment().format("YYYY-MM-DD HH:mm:ss");
-    console.log(timer);
+    console.log({
+        "received": timer,
+        "agent": req.get('User-Agent')
+    });
     res.json({
         "received": timer
     });
@@ -24,11 +27,17 @@ router.get("/", (req, res) => {
 
 router.post("/api/logger", (req, res) => {
     // console.log(moment().format("YYYY-MM-DD HH:mm:ss"));
-    console.log(req.body);
+    // console.log(req.body);
     // console.log(req.body.message);
     // res.json(req.body);
+    const timer = moment().format("YYYY-MM-DD HH:mm:ss");
+    console.log({
+        "received": timer,
+        "agent": req.get('User-Agent'),
+        "body": req.body
+    });
     res.json({
-        "received": moment().format("YYYY-MM-DD HH:mm:ss")
+        "received": timer
     });
 });
 
