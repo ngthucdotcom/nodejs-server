@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require('cors');
-var moment = require("moment");
+const moment = require("moment");
 const app = express();
 const router = express.Router();
 
